@@ -35,7 +35,7 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label>Catagory</label>
+                                            <label>Catagory *</label>
                                             <input type="text" class="form-control" name="catagory" required="required">
                                         </div>                   
                                     </div>

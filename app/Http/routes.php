@@ -43,8 +43,10 @@ Route::get('/reply','HomeController@reply');
 Route::get('/account', ['as' => 'account', 'uses' => 'HomeController@account']);
 
 Route::get('/job', ['as' => 'job', 'uses' => 'HomeController@jobs']);
+Route::get('/job/query','HomeController@job_query');
 
 
 Route::get('/ques_vote/{aid}/{qid}','HomeController@a_vote');
 Route::get('/ques_vote/{qid}','HomeController@q_vote');
 Route::get('/cancel_ques_vote/{qid}','HomeController@cancel_q_vote');
+Route::auth();

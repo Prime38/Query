@@ -30,7 +30,8 @@ class HomeController extends Controller
         $post= Questions::where('id',$qid)->get();
         $ans_vote=Answer_vote::where('qid',$qid)->get();
         $ques_vote=Vote::where('qid',$qid)->get();
-        return view('question_detail',['page'=>'1','posts'=>$post,'answers'=>$answers,'ans_vote'=>$ans_vote,'ques_vote'=>$ques_vote]);
+        $user=User::where('id',$post[0]['uid'])->get();
+        return view('question_detail',['page'=>'1','posts'=>$post,'answers'=>$answers,'ans_vote'=>$ans_vote,'ques_vote'=>$ques_vote,'user'=>$user]);
 
     }
 
@@ -45,7 +46,8 @@ class HomeController extends Controller
         $post= Questions::where('id',$qid)->get();
         $ans_vote=Answer_vote::where('qid',$qid)->get();
         $ques_vote=Vote::where('qid',$qid)->get();
-        return view('question_detail',['page'=>'1','posts'=>$post,'answers'=>$answers,'ans_vote'=>$ans_vote,'ques_vote'=>$ques_vote]);
+        $user=User::where('id',$post[0]['uid'])->get();
+        return view('question_detail',['page'=>'1','posts'=>$post,'answers'=>$answers,'ans_vote'=>$ans_vote,'ques_vote'=>$ques_vote,'user'=>$user]);
     }
 
 
@@ -57,7 +59,8 @@ class HomeController extends Controller
         $post= Questions::where('id',$qid)->get();
         $ans_vote=Answer_vote::where('qid',$qid)->get();
         $ques_vote=Vote::where('qid',$qid)->get();
-        return view('question_detail',['page'=>'1','posts'=>$post,'answers'=>$answers,'ans_vote'=>$ans_vote,'ques_vote'=>$ques_vote]);
+        $user=User::where('id',$post[0]['uid'])->get();
+        return view('question_detail',['page'=>'1','posts'=>$post,'answers'=>$answers,'ans_vote'=>$ans_vote,'ques_vote'=>$ques_vote,'user'=>$user]);
     }
 
 

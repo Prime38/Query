@@ -12,45 +12,49 @@
         <div>
         <div class="blog">
             <div class="row">
-            @foreach($user as $users)
-            <h1>{{$users->name}}</h1>
-            <h2>Email: {{$users->email}}</h2>
-            @endforeach
+                @foreach($user as $users)
+                <h1>{{$users->name}}</h1>
+                <h2>Email: {{$users->email}}</h2>
+                @endforeach
+
+                <div>
+                <div><h2>Experties:</h2> 
+                    @php($c=0)
+                    @foreach($question as $questions)
+                    @php($c++)
+                    <div><h5><li>{{$questions->catagory}}</li></h5></div>
+                    @endforeach
+                    @foreach($answer as $answers)
+                    @php($c++)
+                    <div><h5><li>{{$answers->catagory}}</li></h5></div>
+                    @endforeach
+            </div>
+            <div>
+                <center>
+                    <h2>Answers Given</h2>
+                </center>
+            </div>
+            @php($c=0)
+            <div>
+                @foreach($answer as $answers)
+                @php($c++)
+                <div><h5><li> <a href="{{url('/').'/question_detail?ids='.$answers->qid}}">{{$answers->answer}}</a></li></h5></div>
+                @endforeach
+            </div>
 
             <div>
-            <div><h2>Experties:</h2> 
-                @php($c=0)
+                <center>
+                    <h2>Questions Asked</h2>
+                </center>
+            </div>
+            @php($c=0)
+            <div>
                 @foreach($question as $questions)
                 @php($c++)
-                <div><h5><li>{{$questions->catagory}}</li></h5></div>
+                <div><h5><li> <a href="{{url('/').'/question_detail?ids='.$questions->id}}">{{$questions->title}}</a></li></h5></div>
                 @endforeach
+            </div>
         </div>
-        <div>
-            <center>
-                <h2>Answers Given</h2>
-            </center>
-        </div>
-        @php($c=0)
-        <div>
-        @foreach($answer as $answers)
-        @php($c++)
-        <div><h5><li>{{$answers->answer}}</li></h5></div>
-        @endforeach
-        </div>
-
-        <div>
-            <center>
-                <h2>Questions Asked</h2>
-            </center>
-        </div>
-        @php($c=0)
-        <div>
-        @foreach($question as $questions)
-        @php($c++)
-        <div><h5><li>{{$questions->question}}</li></h5></div>
-        @endforeach
-        </div>
-    </div>
     </div>
 </div>
 
@@ -60,6 +64,8 @@
             
         </div>
 
+
+        @if($users->id==1)
         <div class="blog">
             <div class="row">
                 <div >
@@ -105,6 +111,7 @@
             </div><!--/.row-->
 
          </div><!--/.blog-->
+         @endif
     </section>
 
 

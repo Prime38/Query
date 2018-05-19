@@ -20,6 +20,7 @@
                 <div class="col-md-8">
                     <div class="blog-item">
                         @foreach($chat as $message)
+                        
                         <div class="media comment_section">
                             
                             <div class="pull-left post_comments">

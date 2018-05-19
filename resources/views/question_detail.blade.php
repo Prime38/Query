@@ -25,7 +25,7 @@
                                     <h2>{{$post->title}}</h2>
                                     <p>{{$post->question}}</p>
                                     @foreach($user as $user)
-                                    <h5>Asked by: <a href="<?php echo "account?ids=$user->id"; ?>">{{$user->email}}</a></h5>
+                                    <h5>Asked by: <a href="<?php echo "account?ids=$user->id"; ?>">{{$user->name}}</a></h5>
                                     @endforeach
                                     <input type="hidden" id="qid" value="{{$post->id}}">
                                     <div class="post-tags">
@@ -41,7 +41,6 @@
                                     @php($q=0)
                                     @if(Auth::user()->id!=$post->uid)
                                         @foreach($ques_vote as $ques_voted)
-
                                             @if($ques_voted->uid==Auth::user()->id)
                                                 @php($q=1)
                                                 @break
@@ -98,7 +97,6 @@
                                 @endif
                                 
 <!-- ================================================ /check if voted or not ===================================================== -->
-                                {{$c}}
                                 @if($c==1)
                                     <div><i class="fa fa-check" style="font-size:40px;color: green;"></i></div>
                                 @elseif($c==0)
@@ -109,8 +107,8 @@
                                 @endif
                             </div>
                             <div class="media-body">
-                                <h3>{{$answer->user}}</h3>
-                                <h4>{{$answer->updated_at}}</h4>
+                                <h4><a href="{{url('/').'/question_detail?ids='.$answer->user->id}}">{{$answer->user->name}}</a></h4>
+                                <h5>{{$answer->updated_at}}</h5>
                                 <p>{{$answer->answer}}</p>
                                 <!-- <a href="#">Reply</a> -->
                             </div>
